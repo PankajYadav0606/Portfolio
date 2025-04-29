@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pankaj Yadav | Full-Stack Developer & AI Enthusiast</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+    :root {
+      --main-color: #033a80;
+      --hover: #4f6ae6;
+      --bg-color: #fff;
+      --text-color: #0a041d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: #fff;
+      padding: 15px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .navbar {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .navbar a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      color: var(--hover);
+    }
+
+    section {
+      padding: 100px 8% 80px;
+    }
+
+    .home {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .home-img img {
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    .home-text {
+      max-width: 500px;
+    }
+
+    .home-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .home-text h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: var(--hover);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--main-color);
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .project-content,
+    .skills-indicators {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .project-box,
+    .indicator {
+      background: #f0f0f0;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .project-box:hover,
+    .indicator:hover {
+      background: #02225a;
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3);
+    }
+
+    .project-box i {
+      font-size: 50px;
+      color: var(--main-color);
+    }
+
+    .project-box:hover i {
+      color: #22cf91;
+    }
+
+    .indicator .percentage {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: conic-gradient(var(--main-color) calc(var(--val) * 1%), #ddd 0%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin: auto;
+    }
+
+    .indicator:hover .percentage {
+      background: conic-gradient(var(--hover) calc(var(--val) * 1%), #ddd 0%);
+    }
+
+    .indicator .skill-name {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .about-text {
+      text-align: justify;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .contact-details,
+    .contact-form form {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      background: var(--main-color);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background: var(--hover);
+    }
+
+    .copyright {
+      text-align: center;
+      background: var(--main-color);
+      color: #fff;
+      padding: 15px;
+      margin-top: 50px;
+    }
+
+    @keyframes slideFadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      animation: slideFadeUp 1s ease forwards;
+    }
+
+    .fade-delay-1 { animation-delay: 0.2s; }
+    .fade-delay-2 { animation-delay: 0.4s; }
+    .fade-delay-3 { animation-delay: 0.6s; }
+    .fade-delay-4 { animation-delay: 0.8s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Pankaj Yadav</div>
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home fade-up fade-delay-1" id="home">
+    <div class="home-text">
+      <h1>Pankaj Yadav</h1>
+      <h2>Full-Stack Developer & AI Enthusiast</h2>
+      <p>Passionate about building intelligent web and mobile apps using modern full-stack technologies and AI techniques.</p>
+      <a href="#contact" class="btn">Contact Me</a>
+      <a href="Pankaj_Yadav_Resume.pdf" target="_blank" class="btn">View CV</a>
+
+
+    </div>
+    <div class="home-img">
+      <img src="portfolio img.jpg" alt="Profile Picture">
+    </div>
+  </section>
+
+  <section class="fade-up fade-delay-2" id="projects">
+    <div class="heading">
+      <h2>Projects</h2>
+    </div>
+    <div class="project-content">
+      <div class="project-box"><i class='bx bx-car'></i><h3>AI-Based Vehicle Selling App</h3><p>Smart pricing with NLP Chat</p></div>
+      <div class="project-box"><i class='bx bxl-instagram'></i><h3>Instagram Clone</h3><p>Android app using Java & XML</p></div>
+      <div class="project-box"><i class='bx bx-library'></i><h3>Library System</h3><p>Java Servlets + JSP</p></div>
+      <div class="project-box"><i class='bx bx-message-alt'></i><h3>Feedback System</h3><p>Java + Admin analytics</p></div>
+      <div class="project-box"><i class='bx bx-calendar'></i><h3>Leave Application</h3><p>Role-based access</p></div>
+    </div>
+  </section>
+
+  <section class="fade-up fade-delay-3" id="skills">
+    <div class="heading">
+      <h2>Skills</h2>
+    </div>
+
+   <div class="skills-indicators">
+  <div class="indicator" style="--val: 95">
+    <div class="percentage">95%</div>
+    <div class="skill-name">HTML</div>
+  </div>
+  <div class="indicator" style="--val: 90">
+    <div class="percentage">90%</div>
+    <div class="skill-name">CSS</div>
+  </div>
+  <div class="indicator" style="--val: 85">
+    <div class="percentage">85%</div>
+    <div class="skill-name">JavaScript</div>
+  </div>
+  <div class="indicator" style="--val: 80">
+    <div class="percentage">80%</div>
+    <div class="skill-name">ReactJS</div>
+  </div>
+  <div class="indicator" style="--val: 90">
+    <div class="percentage">90%</div>
+    <div class="skill-name">Java</div>
+  </div>
+  <div class="indicator" style="--val: 80">
+    <div class="percentage">80%</div>
+    <div class="skill-name">C++</div>
+  </div>
+  <div class="indicator" style="--val: 85">
+    <div class="percentage">85%</div>
+    <div class="skill-name">Spring Boot</div>
+  </div>
+  <div class="indicator" style="--val: 75">
+    <div class="percentage">75%</div>
+    <div class="skill-name">PHP</div>
+  </div>
+  
+</div>
+
+  </section>
+
+  <section class="fade-up fade-delay-4" id="about">
+    <div class="heading">
+      <h2>About Me</h2>
+    </div>
+    <div class="about-text">
+      <p>
+        I’m a full-stack developer and AI enthusiast currently pursuing my B.E. in Computer Engineering at Dr. D.Y. Patil College of Engineering & Innovation, Pune. I specialize in Java, Spring Boot, Android, and modern front-end frameworks. My passion lies in solving real-world problems through scalable web and mobile solutions.
+      </p>
+    </div>
+  </section>
+
+  <section class="fade-up fade-delay-4" id="contact">
+    <div class="heading">
+      <h2>Contact</h2>
+    </div>
+    <div class="contact-info">
+      <div class="contact-details">
+        <p><strong>Phone:</strong> +91 9307810328</p>
+        <p><strong>Email:</strong> py9307810328@gmail.com</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/pankajyadav006">pankajyadav006</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pankaj-yadav-10a472252/">Pankaj Yadav</a></p>
+        <a href="Pankaj_Yadav_Resume.pdf" download class="btn">Download CV</a>
+
+      </div>
+      <div class="contact-form">
+        <form action="#" method="POST">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" required></textarea>
+          <input type="submit" value="Send Message">
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="copyright">
+    <p>© 2024 Pankaj Yadav. All rights reserved.</p>
+  </div>
+</body>
+</html>
